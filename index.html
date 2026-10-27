@@ -1,75 +1,1638 @@
 <!doctype html>
 <html lang="es-ES">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#102a43"><title>Inglés profesional · DAW Study Lab</title>
-<style>
-:root{--ink:#102a43;--muted:#536779;--paper:#f4f7fb;--card:#fff;--line:#dce5ef;--blue:#2463eb;--blue2:#e9f0ff;--mint:#d9f7ed;--green:#16734b;--red:#b53a3a;--amber:#fff2cf;--shadow:0 14px 40px rgba(16,42,67,.08);--radius:20px}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.shell{max-width:1120px;margin:auto;padding:24px}.hero{background:linear-gradient(125deg,#102a43,#174a73 65%,#2463eb);color:white;border-radius:28px;padding:30px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"</>";position:absolute;right:30px;bottom:-32px;font:bold 150px/1 ui-monospace,monospace;color:#ffffff12}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.74rem;font-weight:800;color:#b7d4ff}.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.05;margin:10px 0}.hero p{max-width:650px;color:#e0eaf7;margin-bottom:18px}.pill{display:inline-flex;border:1px solid #ffffff55;border-radius:99px;padding:6px 11px;font-size:.83rem;margin:3px 5px 0 0;color:white}.today{background:#ffffff16;border:1px solid #ffffff2b;padding:12px 15px;border-radius:14px;display:inline-block;font-size:.9rem}.progress-wrap{margin:18px 0 4px}.progress-top{display:flex;justify-content:space-between;font-size:.86rem;color:#e4efff;margin-bottom:6px}.progress{height:8px;background:#ffffff30;border-radius:99px;overflow:hidden;max-width:440px}.progress i{display:block;height:100%;background:#75e5bd;width:0;transition:width .3s}.nav{display:flex;gap:8px;overflow:auto;padding:16px 0 10px;position:sticky;top:0;background:var(--paper);z-index:3}.nav button{white-space:nowrap;border:1px solid var(--line);background:white;border-radius:99px;padding:9px 15px;color:var(--ink);font-weight:700}.nav button.active{background:var(--ink);border-color:var(--ink);color:white}.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.card h2,.card h3{margin:0 0 9px;line-height:1.2}.card h2{font-size:1.35rem}.card h3{font-size:1.05rem}.muted{color:var(--muted)}.small{font-size:.88rem}.tag{display:inline-block;padding:4px 9px;border-radius:99px;background:var(--blue2);color:#244fa6;font-weight:750;font-size:.75rem;margin-bottom:8px}.unithead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0}.unithead h2{margin:0;font-size:1.65rem}.phrase{padding:11px 0;border-bottom:1px solid var(--line)}.phrase:last-child{border-bottom:0}.phrase strong{display:block}.phrase em{color:#315d8b}.example{background:#f1f6ff;border-left:3px solid var(--blue);padding:10px 13px;border-radius:0 11px 11px 0;margin:10px 0}.rule{border-radius:14px;padding:13px 15px;margin:10px 0;background:#f2f6fa}.rule b{color:#174a73}.btn{border:0;border-radius:12px;background:var(--blue);color:#fff;padding:10px 14px;font-weight:750;box-shadow:0 5px 14px #2463eb25}.btn:hover{filter:brightness(.95)}.btn.secondary{background:#edf2f7;color:var(--ink);box-shadow:none;border:1px solid var(--line)}.btn.ghost{background:white;color:var(--ink);border:1px solid var(--line);box-shadow:none}.btn.smallbtn{font-size:.85rem;padding:7px 10px}.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.divider{height:1px;background:var(--line);margin:14px 0}.flash{min-height:180px;display:flex;flex-direction:column;justify-content:center;text-align:center;cursor:pointer;background:linear-gradient(145deg,#f5f8ff,#e8f7f4);border:1px dashed #a8bdd1}.flash .term{font-size:1.8rem;font-weight:850}.flash .meaning{font-size:1.15rem;color:#315d8b;margin-top:8px}.flash .example{max-width:620px;margin:12px auto 0;text-align:left}.question{border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;background:#fff}.question p{margin:0 0 10px;font-weight:700}.options{display:grid;gap:7px}.option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:11px;padding:9px 11px;cursor:pointer}.option:hover{background:#f7faff}.option input{margin-top:5px;accent-color:var(--blue)}.feedback{margin-top:8px;font-size:.9rem;font-weight:750}.feedback.ok{color:var(--green)}.feedback.no{color:var(--red)}.qinput{width:100%;max-width:450px;padding:10px 12px;border:1px solid #b8c7d8;border-radius:10px}.reading{background:#f6f9fc;border:1px solid var(--line);border-radius:15px;padding:17px;line-height:1.75}.audio-box{border-radius:15px;background:#f5f8ff;padding:16px}.transcript{display:none;margin-top:13px;padding:14px;border-radius:12px;background:white;border:1px solid var(--line)}.transcript.show{display:block}.prompt{font-size:1.15rem;font-weight:750;background:#f2f7ff;border-radius:13px;padding:15px}.text-area{width:100%;min-height:175px;padding:13px;border-radius:12px;border:1px solid #b8c7d8;resize:vertical}.count{font-size:.85rem;color:var(--muted)}.callout{background:var(--amber);padding:12px 14px;border-radius:13px}.schedule{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.datebox{padding:15px;background:#f7f9fc;border:1px solid var(--line);border-radius:15px}.datebox b{display:block;margin-bottom:5px}.kbd{font: .8rem ui-monospace,monospace;background:#edf2f7;padding:3px 7px;border-radius:6px}footer{text-align:center;padding:24px;color:#6b7f91;font-size:.84rem}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);padding:10px 16px;background:var(--ink);color:#fff;border-radius:99px;display:none;z-index:9;box-shadow:var(--shadow)}@media(max-width:760px){.shell{padding:14px}.hero{padding:23px}.grid{gap:12px}.span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 12}.schedule{grid-template-columns:1fr}.nav{margin:0 -14px;padding-left:14px;padding-right:14px}.hero:after{font-size:90px;right:16px}}
+
+  <head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a43">
+    <title>Inglés profesional · DAW Study Lab</title>
+
+    <style>
+:root  {
+  --ink:#102a43;
+  --muted:#536779;
+  --paper:#f4f7fb;
+  --card:#fff;
+  --line:#dce5ef;
+  --blue:#2463eb;
+  --blue2:#e9f0ff;
+  --mint:#d9f7ed;
+  --green:#16734b;
+  --red:#b53a3a;
+  --amber:#fff2cf;
+  --shadow:0 14px 40px rgba(16,42,67,.08);
+  --radius:20px
+}
+*  {
+  box-sizing:border-box
+}
+body  {
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+}
+button,input,textarea,select  {
+  font:inherit
+}
+button  {
+  cursor:pointer
+}
+.shell  {
+  max-width:1120px;
+  margin:auto;
+  padding:24px
+}
+.hero  {
+  background:linear-gradient(125deg,#102a43,#174a73 65%,#2463eb);
+  color:white;
+  border-radius:28px;
+  padding:30px 32px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden
+}
+.hero:after  {
+  content:"</>";
+  position:absolute;
+  right:30px;
+  bottom:-32px;
+  font:bold 150px/1 ui-monospace,monospace;
+  color:#ffffff12
+}
+.eyebrow  {
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-size:.74rem;
+  font-weight:800;
+  color:#b7d4ff
+}
+.hero h1  {
+  font-size:clamp(2rem,5vw,3.3rem);
+  line-height:1.05;
+  margin:10px 0
+}
+.hero p  {
+  max-width:650px;
+  color:#e0eaf7;
+  margin-bottom:18px
+}
+.pill  {
+  display:inline-flex;
+  border:1px solid #ffffff55;
+  border-radius:99px;
+  padding:6px 11px;
+  font-size:.83rem;
+  margin:3px 5px 0 0;
+  color:white
+}
+.today  {
+  background:#ffffff16;
+  border:1px solid #ffffff2b;
+  padding:12px 15px;
+  border-radius:14px;
+  display:inline-block;
+  font-size:.9rem
+}
+.progress-wrap  {
+  margin:18px 0 4px
+}
+.progress-top  {
+  display:flex;
+  justify-content:space-between;
+  font-size:.86rem;
+  color:#e4efff;
+  margin-bottom:6px
+}
+.progress  {
+  height:8px;
+  background:#ffffff30;
+  border-radius:99px;
+  overflow:hidden;
+  max-width:440px
+}
+.progress i  {
+  display:block;
+  height:100%;
+  background:#75e5bd;
+  width:0;
+  transition:width .3s
+}
+.nav  {
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  padding:16px 0 10px;
+  position:sticky;
+  top:0;
+  background:var(--paper);
+  z-index:3
+}
+.nav button  {
+  white-space:nowrap;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:99px;
+  padding:9px 15px;
+  color:var(--ink);
+  font-weight:700
+}
+.nav button.active  {
+  background:var(--ink);
+  border-color:var(--ink);
+  color:white
+}
+.view  {
+  display:none
+}
+.view.active  {
+  display:block
+}
+.grid  {
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px
+}
+.card  {
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow)
+}
+.span-12  {
+  grid-column:span 12
+}
+.span-8  {
+  grid-column:span 8
+}
+.span-7  {
+  grid-column:span 7
+}
+.span-6  {
+  grid-column:span 6
+}
+.span-5  {
+  grid-column:span 5
+}
+.span-4  {
+  grid-column:span 4
+}
+.card h2,.card h3  {
+  margin:0 0 9px;
+  line-height:1.2
+}
+.card h2  {
+  font-size:1.35rem
+}
+.card h3  {
+  font-size:1.05rem
+}
+.muted  {
+  color:var(--muted)
+}
+.small  {
+  font-size:.88rem
+}
+.tag  {
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:99px;
+  background:var(--blue2);
+  color:#244fa6;
+  font-weight:750;
+  font-size:.75rem;
+  margin-bottom:8px
+}
+.unithead  {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:18px 0
+}
+.unithead h2  {
+  margin:0;
+  font-size:1.65rem
+}
+.phrase  {
+  padding:11px 0;
+  border-bottom:1px solid var(--line)
+}
+.phrase:last-child  {
+  border-bottom:0
+}
+.phrase strong  {
+  display:block
+}
+.phrase em  {
+  color:#315d8b
+}
+.example  {
+  background:#f1f6ff;
+  border-left:3px solid var(--blue);
+  padding:10px 13px;
+  border-radius:0 11px 11px 0;
+  margin:10px 0
+}
+.rule  {
+  border-radius:14px;
+  padding:13px 15px;
+  margin:10px 0;
+  background:#f2f6fa
+}
+.rule b  {
+  color:#174a73
+}
+.btn  {
+  border:0;
+  border-radius:12px;
+  background:var(--blue);
+  color:#fff;
+  padding:10px 14px;
+  font-weight:750;
+  box-shadow:0 5px 14px #2463eb25
+}
+.btn:hover  {
+  filter:brightness(.95)
+}
+.btn.secondary  {
+  background:#edf2f7;
+  color:var(--ink);
+  box-shadow:none;
+  border:1px solid var(--line)
+}
+.btn.ghost  {
+  background:white;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:none
+}
+.btn.smallbtn  {
+  font-size:.85rem;
+  padding:7px 10px
+}
+.row  {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap
+}
+.divider  {
+  height:1px;
+  background:var(--line);
+  margin:14px 0
+}
+.flash  {
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  cursor:pointer;
+  background:linear-gradient(145deg,#f5f8ff,#e8f7f4);
+  border:1px dashed #a8bdd1
+}
+.flash .term  {
+  font-size:1.8rem;
+  font-weight:850
+}
+.flash .meaning  {
+  font-size:1.15rem;
+  color:#315d8b;
+  margin-top:8px
+}
+.flash .example  {
+  max-width:620px;
+  margin:12px auto 0;
+  text-align:left
+}
+.question  {
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  margin:12px 0;
+  background:#fff
+}
+.question p  {
+  margin:0 0 10px;
+  font-weight:700
+}
+.options  {
+  display:grid;
+  gap:7px
+}
+.option  {
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:9px 11px;
+  cursor:pointer
+}
+.option:hover  {
+  background:#f7faff
+}
+.option input  {
+  margin-top:5px;
+  accent-color:var(--blue)
+}
+.feedback  {
+  margin-top:8px;
+  font-size:.9rem;
+  font-weight:750
+}
+.feedback.ok  {
+  color:var(--green)
+}
+.feedback.no  {
+  color:var(--red)
+}
+.qinput  {
+  width:100%;
+  max-width:450px;
+  padding:10px 12px;
+  border:1px solid #b8c7d8;
+  border-radius:10px
+}
+.reading  {
+  background:#f6f9fc;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:17px;
+  line-height:1.75
+}
+.audio-box  {
+  border-radius:15px;
+  background:#f5f8ff;
+  padding:16px
+}
+.transcript  {
+  display:none;
+  margin-top:13px;
+  padding:14px;
+  border-radius:12px;
+  background:white;
+  border:1px solid var(--line)
+}
+.transcript.show  {
+  display:block
+}
+.prompt  {
+  font-size:1.15rem;
+  font-weight:750;
+  background:#f2f7ff;
+  border-radius:13px;
+  padding:15px
+}
+.text-area  {
+  width:100%;
+  min-height:175px;
+  padding:13px;
+  border-radius:12px;
+  border:1px solid #b8c7d8;
+  resize:vertical
+}
+.count  {
+  font-size:.85rem;
+  color:var(--muted)
+}
+.callout  {
+  background:var(--amber);
+  padding:12px 14px;
+  border-radius:13px
+}
+.schedule  {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px
+}
+.datebox  {
+  padding:15px;
+  background:#f7f9fc;
+  border:1px solid var(--line);
+  border-radius:15px
+}
+.datebox b  {
+  display:block;
+  margin-bottom:5px
+}
+.kbd  {
+  font: .8rem ui-monospace,monospace;
+  background:#edf2f7;
+  padding:3px 7px;
+  border-radius:6px
+}
+footer  {
+  text-align:center;
+  padding:24px;
+  color:#6b7f91;
+  font-size:.84rem
+}
+.toast  {
+  position:fixed;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 16px;
+  background:var(--ink);
+  color:#fff;
+  border-radius:99px;
+  display:none;
+  z-index:9;
+  box-shadow:var(--shadow)
+}
+@media(max-width:760px)  {
+  .shell  {
+    padding:14px
+  }
+  .hero  {
+    padding:23px
+  }
+  .grid  {
+    gap:12px
+  }
+  .span-8,.span-7,.span-6,.span-5,.span-4  {
+    grid-column:span 12
+  }
+  .schedule  {
+    grid-template-columns:1fr
+  }
+  .nav  {
+    margin:0 -14px;
+    padding-left:14px;
+    padding-right:14px
+  }
+  .hero:after  {
+    font-size:90px;
+    right:16px
+  }
+
+}
+
+    /* Visual polish and accessible interaction states */
+    :root  {
+      --ink: #142b4d;
+      --muted: #5b6d82;
+      --paper: #f2f6fb;
+      --line: #dbe5f0;
+      --blue: #315fe8;
+      --blue2: #eaf0ff;
+      --radius: 22px;
+      --shadow: 0 12px 32px rgba(20, 43, 77, .07);
+
+}
+    body  {
+      background: radial-gradient(ellipse at 85% 0%, #e5edff 0, transparent 28rem), var(--paper);
+      letter-spacing: .005em;
+
+}
+    .shell  {
+   max-width: 1180px;
+   padding: 28px 30px;
+}
+    .hero  {
+      padding: 38px 40px;
+      background: linear-gradient(122deg, #102743 0%, #1c4778 58%, #315fe8 100%);
+      box-shadow: 0 22px 50px rgba(22, 55, 100, .16);
+
+}
+    .hero h1  {
+   letter-spacing: -.045em;
+}
+    .hero p  {
+   font-size: 1.05rem;
+   line-height: 1.7;
+}
+    .today  {
+   backdrop-filter: blur(8px);
+}
+    .nav  {
+      top: 0;
+      margin: 10px -8px 12px;
+      padding: 13px 8px;
+      background: rgba(242, 246, 251, .91);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(219, 229, 240, .8);
+
+}
+    .nav button  {
+   transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
+}
+    .nav button:hover  {
+   transform: translateY(-1px);
+   box-shadow: 0 5px 14px rgba(20,43,77,.08);
+}
+    .grid  {
+   gap: 20px;
+}
+    .card  {
+      padding: 23px;
+      border-color: rgba(211, 223, 237, .9);
+      box-shadow: 0 8px 26px rgba(20, 43, 77, .055);
+      transition: transform .18s ease, box-shadow .18s ease;
+
+}
+    .card:not(.question):hover  {
+   box-shadow: 0 12px 30px rgba(20,43,77,.09);
+}
+    .card h2  {
+   letter-spacing: -.02em;
+}
+    .tag  {
+   letter-spacing: .035em;
+   text-transform: uppercase;
+}
+    .unithead  {
+   margin: 26px 0 18px;
+}
+    .unithead h2  {
+   letter-spacing: -.035em;
+}
+    .datebox  {
+   line-height: 1.55;
+}
+    .datebox:first-child  {
+   background: linear-gradient(135deg, #eef3ff, #f8fbff);
+   border-color: #c9d8ff;
+}
+    .example  {
+   background: #f2f6ff;
+   line-height: 1.65;
+}
+    .rule  {
+   line-height: 1.65;
+}
+    .btn  {
+   transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+}
+    .btn:hover  {
+   transform: translateY(-1px);
+   box-shadow: 0 8px 18px rgba(49,95,232,.18);
+}
+    .btn:active  {
+   transform: translateY(0);
+}
+    :focus-visible  {
+   outline: 3px solid #88a9ff;
+   outline-offset: 3px;
+}
+    .option:has(input:checked)  {
+   border-color: #8ca8ff;
+   background: #f1f5ff;
+}
+    .flash  {
+   border-radius: 18px;
+   min-height: 200px;
+}
+    .question  {
+   box-shadow: 0 3px 12px rgba(20,43,77,.025);
+}
+    .text-area:focus, .qinput:focus, select:focus  {
+   border-color: #7899f5;
+   outline: 3px solid #dce6ff;
+}
+    footer  {
+   padding: 32px 16px;
+}
+    @media (max-width: 760px)  {
+      .shell  {
+     padding: 14px;
+  }
+      .hero  {
+     padding: 26px 22px;
+  }
+      .grid  {
+     gap: 13px;
+  }
+      .card  {
+     padding: 18px;
+  }
+      .nav  {
+     margin-left: -14px;
+     margin-right: -14px;
+     padding-left: 14px;
+     padding-right: 14px;
+  }
+      .unithead  {
+     align-items: flex-start;
+     flex-direction: column;
+  }
+
+}
+
 </style>
 </head>
-<body><div class="shell">
-<header class="hero"><div class="eyebrow">DAW · Inglés profesional · B1/B2</div><h1>Business English,<br>paso a paso.</h1><p>Practica inglés profesional en sesiones cortas: vocabulario, gramática, reading, listening, speaking y writing con ejemplos de desarrollo web.</p><div class="today" id="dateLine">Tu espacio de práctica</div><div style="margin-top:10px"><span class="pill">3–5 min por actividad</span><span class="pill">Progreso guardado en este navegador</span><span class="pill">Funciona sin conexión</span></div><div class="progress-wrap"><div class="progress-top"><span>Tu progreso en los ejercicios</span><span id="progressLabel">0%</span></div><div class="progress"><i id="progressBar"></i></div></div></header>
-<nav class="nav" aria-label="Secciones"><button class="active" data-target="home">Inicio</button><button data-target="u12">03 nov · Unidades 1–2</button><button data-target="listen">10 nov · Listening y speaking</button><button data-target="u3">17 nov · Unidad 3</button><button data-target="write">Writing</button></nav>
-<main>
-<section class="view active" id="home"><div class="grid"><div class="card span-12"><span class="tag">Calendario de exámenes</span><div class="schedule"><div class="datebox"><b>03 Nov</b>Unidad 1 + Unidad 2<br><span class="muted">Vocabulario · Gramática · Reading</span></div><div class="datebox"><b>10 Nov</b>Listening + Speaking<br><span class="muted">Comprensión oral · expresión oral</span></div><div class="datebox"><b>17 Nov</b>Writing + Unidad 3<br><span class="muted">Vocabulario · gramática acumulada</span></div></div><p class="small muted" style="margin-bottom:0">Interpretación provisional: el índice del libro llega hasta la Unidad 15. Por eso, «U18 U2» probablemente significa «U1 y U2».</p></div><div class="card span-7"><span class="tag">Modo clase · 5 minutos</span><h2>Una ronda rápida</h2><p class="muted">Haz una pregunta de vocabulario, otra de gramática y responde brevemente en voz alta. ¡Cinco minutos también cuentan!</p><div class="row"><button class="btn" onclick="go('u12');document.getElementById('quizStart').scrollIntoView({behavior:'smooth'})">Empezar unidades 1–2</button><button class="btn secondary" onclick="go('listen')">Practicar listening</button></div></div><div class="card span-5"><span class="tag">Tu objetivo</span><h2 id="streakTitle">Empieza con una pregunta</h2><p class="muted" id="streakText">Tus respuestas se guardan en este navegador. Puedes continuar después de clase.</p><button class="btn ghost smallbtn" onclick="resetProgress()">Borrar progreso</button></div></div></section>
-<section class="view" id="u12"><div class="unithead"><h2>03 nov · Unidades 1–2</h2><span class="tag">Vocabulario · Gramática · Reading</span></div><div class="grid"><div class="card span-6"><span class="tag">Unidad 1 · Working life</span><h2>Habla de tu trabajo</h2><div class="phrase"><strong>work as / work for / work in</strong><span class="muted">puesto / empresa / sector</span><div class="example">I work <b>as</b> a junior developer <b>for</b> a software company <b>in</b> Burgos.</div></div><div class="phrase"><strong>be in charge of / be responsible for</strong><span class="muted">ser responsable de una tarea o función</span><div class="example">I’m responsible for testing new features. Our team lead is in charge of planning releases.</div></div><div class="phrase"><strong>specialize in / deal with / consist of</strong><span class="muted">especializarse en / tratar con / constar de</span><div class="example">We specialize in web apps. Support deals with user requests. The team consists of five developers.</div></div><p class="small muted">Otras palabras del tema: <b>colleagues</b> (compañeros), <b>clients</b> (clientes), <b>freelance</b> (freelancer), <b>full-time</b> (jornada completa), <b>part-time</b> (jornada parcial), <b>job title</b> (cargo).</p></div><div class="card span-6"><span class="tag">Unidad 1 · Language at work</span><h2>Present Simple × Continuous</h2><div class="rule"><b>Present Simple</b> para hábitos, responsabilidades y hechos.<br><span class="example">I test the website every morning. She works with the design team.</span></div><div class="rule"><b>Present Continuous</b> para algo que está ocurriendo ahora o es temporal.<br><span class="example">We’re testing a new feature this week. I’m working from home today.</span></div><p class="small">Estructura: <span class="kbd">I work / she works</span> · <span class="kbd">I am working / she is working</span></p><p class="small muted">Pistas habituales: <i>usually, every day</i> → simple; <i>now, at the moment, this week</i> → continuous. Verbos como <i>know</i> y <i>like</i> normalmente no se usan en la forma continua.</p></div><div class="card span-6"><span class="tag">Unidad 2 · Work-life balance</span><h2>Condiciones laborales</h2><div class="phrase"><strong>flexitime · core hours · working hours · overtime</strong><span class="muted">horario flexible · franja obligatoria · jornada laboral · horas extra</span></div><div class="phrase"><strong>work from home · annual leave · paid/unpaid leave</strong><span class="muted">teletrabajo · vacaciones anuales · permiso retribuido/no retribuido</span></div><div class="phrase"><strong>sick leave · maternity/paternity leave</strong><span class="muted">baja por enfermedad · permiso de maternidad/paternidad</span><div class="example">The company offers flexitime and lets us work from home twice a week.</div></div></div><div class="card span-6"><span class="tag">Unidad 2 · Language at work</span><h2><i>to + infinitive</i> × <i>-ing</i></h2><div class="rule"><b>Plan o decisión → to + verbo</b><br><span class="example">We plan to release the app in June. I decided to learn React.</span></div><div class="rule"><b>Después de un adjetivo → to + verbo</b><br><span class="example">It’s important to take breaks.</span></div><div class="rule"><b>Después de verbos de gusto → -ing</b><br><span class="example">I enjoy solving problems.</span></div><div class="rule"><b>Después de una preposición → -ing</b><br><span class="example">She’s interested in learning Python. I look forward to meeting you.</span></div></div><div class="card span-12"><span class="tag">Tarjetas · repaso interactivo</span><h2>¿Te sabes el vocabulario?</h2><p class="muted">Pulsa la tarjeta para ver la traducción. Cambia de unidad y turnaos para responder antes de darle la vuelta.</p><div class="row" style="margin-bottom:12px"><label for="deckSelect"><b>Unidad:</b></label><select id="deckSelect" class="qinput" style="max-width:220px" onchange="setDeck(this.value)"><option value="all">Todas</option><option value="1">Unidad 1 · Working life</option><option value="2">Unidad 2 · Work-life balance</option><option value="3">Unidad 3 · Projects</option></select><span id="cardCount" class="small muted"></span></div><button id="flashCard" class="card flash span-12" onclick="flipCard()" aria-live="polite"><span class="tag" id="flashUnit">Unidad 1</span><span class="term" id="flashTerm">work as</span><span class="meaning" id="flashMeaning" style="display:none">trabajar como</span><span class="example" id="flashExample" style="display:none">I work as a web developer.</span><span class="small muted" id="flashHint">Pulsa para revelar la respuesta</span></button><div class="row" style="justify-content:center;margin-top:12px"><button class="btn secondary" onclick="prevCard()">← Anterior</button><button class="btn" onclick="nextCard()">Siguiente →</button><button class="btn ghost" onclick="shuffleCards()">Mezclar</button></div></div><div class="card span-12" id="quizStart"><span class="tag">Mini examen · 10 preguntas + reading</span><h2>Responde y comprueba al instante</h2><p class="muted">Las preguntas combinan las unidades 1–2 e incluyen un reading breve. Intenta responder sin mirar el resumen.</p><div id="quiz"></div><div class="row"><button class="btn" onclick="checkQuiz()">Corregir respuestas</button><button class="btn secondary" onclick="clearQuiz()">Borrar respuestas</button><span id="quizScore" class="muted"></span></div></div></div></section>
-<section class="view" id="listen"><div class="unithead"><h2>10 nov · Listening y speaking</h2><span class="tag">Práctica oral</span></div><div class="grid"><div class="card span-7"><span class="tag">Listening · audio simulado</span><h2>Escucha antes de leer</h2><p class="muted">Pulsa para escuchar el texto en inglés. Si quieres, lee primero las preguntas, escucha dos veces y apunta palabras clave.</p><div class="audio-box"><div class="row"><button class="btn" onclick="speakText()">▶ Escuchar el audio</button><button class="btn secondary" onclick="stopSpeech()">Parar</button><button class="btn ghost" onclick="toggleTranscript()">Mostrar transcripción</button></div><div class="transcript" id="transcript"><b>Audio script · A project update</b><p>Hi, everyone. Here’s a quick update on the customer portal. We’ve completed the login page and tested it with three users. We started the project two weeks ago, but we’re a little behind schedule because the payment API is taking longer than expected. Ana is checking the integration today. I’ll speak to the client tomorrow and send a revised timeline. We’re planning to finish testing by Friday. Please let me know if you have any questions.</p></div></div><div id="listenQuiz"></div><button class="btn" onclick="checkListening()">Corregir listening</button><span id="listenScore" class="muted" style="margin-left:10px"></span></div><div class="card span-5"><span class="tag">Speaking · práctica breve</span><h2>Responde en voz alta</h2><div class="prompt" id="speakPrompt">What are you working on at the moment?</div><div class="row" style="margin:12px 0"><button class="btn secondary" onclick="nextPrompt()">Otra pregunta</button><button class="btn ghost" onclick="speakPrompt()">🔊 Escuchar la pregunta</button></div><p class="small muted">Habla durante 30–45 segundos. Puedes usar estas estructuras:</p><div class="example">I’m currently working on…<br>My main responsibility is…<br>We’ve already completed…<br>The next step is to…<br>We expect to finish by…</div><div class="divider"></div><p class="small"><b>Graba tu respuesta</b> en el navegador y descarga el audio para escuchar tu pronunciación.</p><div class="row"><button class="btn smallbtn" id="recordBtn" onclick="recordAnswer()">● Grabar</button><button class="btn secondary smallbtn" id="stopRecord" onclick="stopRecording()" disabled>Parar</button><span id="recStatus" class="small muted"></span></div><audio id="playback" controls style="display:none;width:100%;margin-top:10px"></audio><a id="downloadAudio" style="display:none" class="small" download="speaking-practice.webm">Descargar grabación</a><p class="small muted">La grabación se queda en tu dispositivo; no se envía a ningún servidor.</p></div><div class="card span-12"><span class="tag">Frases para estructurar tu intervención</span><h2>Organiza tu respuesta</h2><div class="grid"><div class="span-4"><b>Para empezar</b><p class="muted">First, I’d like to explain…<br>Let me give you a quick update.</p></div><div class="span-4"><b>Para añadir / contrastar</b><p class="muted">Also, …<br>However, …<br>As a result, …</p></div><div class="span-4"><b>Para concluir</b><p class="muted">To sum up, …<br>The next step is…<br>That’s all from me. Any questions?</p></div></div></div></div></section>
-<section class="view" id="u3"><div class="unithead"><h2>17 nov · Unidad 3</h2><span class="tag">Projects · Present Perfect × Past Simple</span></div><div class="grid"><div class="card span-6"><span class="tag">Vocabulario · Projects</span><h2>Habla del progreso del proyecto</h2><p class="small muted">Vocabulario de apoyo adaptado a proyectos de software y al tema Projects de la unidad.</p><div class="phrase"><strong>project · task · deadline · milestone</strong><span class="muted">proyecto · tarea · fecha límite · hito</span><div class="example">We’ve reached the first milestone, but one task is behind schedule.</div></div><div class="phrase"><strong>progress · update · delegate · delay</strong><span class="muted">progreso · actualización · delegar · retraso</span><div class="example">I’ll update the team and delegate the testing tasks.</div></div><div class="phrase"><strong>on schedule · behind schedule · complete</strong><span class="muted">dentro del plazo · con retraso · completar</span><div class="example">The team has completed the prototype. The launch is still on schedule.</div></div></div><div class="card span-6"><span class="tag">Gramática · tiempos verbales</span><h2>Present Perfect × Past Simple</h2><div class="rule"><b>Present Perfect</b> (<span class="kbd">have/has + past participle</span>): para resultados actuales, experiencias o periodos que aún no han terminado; no indica cuándo exactamente.<br><span class="example">We’ve completed the prototype. Have you tested the new page yet?</span></div><div class="rule"><b>Past Simple</b>: para acciones terminadas en un momento concreto del pasado.<br><span class="example">We completed the prototype yesterday. The project started in September.</span></div><p class="small muted"><i>ever, never, already, yet, just</i> suelen aparecer con el Present Perfect; <i>yesterday, last week, in 2025, two days ago</i> requieren Past Simple.</p></div><div class="card span-12"><span class="tag">Práctica · actualización del proyecto</span><h2>Completa con la forma correcta</h2><div id="u3Quiz"></div><button class="btn" onclick="checkU3()">Corregir Unidad 3</button><span id="u3Score" class="muted" style="margin-left:10px"></span></div></div></section>
-<section class="view" id="write"><div class="unithead"><h2>Writing · práctica para el 17 nov</h2><span class="tag">Borrador guardado automáticamente</span></div><div class="grid"><div class="card span-5"><span class="tag">Propuesta 1 · correo profesional</span><h2>Comunicar un retraso del proyecto</h2><p>Escribe un correo breve al cliente. Explica que la integración con la API se ha retrasado, cuenta qué ha completado el equipo y propone una nueva fecha de entrega. Incluye saludo, párrafos claros y despedida profesional.</p><div class="example">Expresiones útiles: <i>I’m writing to update you on… / We have completed… / Unfortunately… / We expect to… / Please let me know if…</i></div></div><div class="card span-7"><span class="tag">Propuesta 2 · proceso / informe breve</span><h2>Describe un proceso de pruebas</h2><p>Describe en 100–140 palabras cómo prueba tu equipo una nueva funcionalidad web. Incluye el orden de los pasos, quién es responsable de cada parte y cómo registra el equipo los errores.</p><div class="example">Conectores de secuencia: <i>First, … Then, … After that, … Finally, …</i><br>Informe de errores: <i>The issue occurs when… / To reproduce the bug… / The expected result is…</i></div></div><div class="card span-12"><h2>Tu borrador</h2><p class="muted small">Escribe aquí. El texto se guarda en este navegador. Si compartes tu redacción en el chat, puedo corregir la gramática, la cohesión, el vocabulario y el tono.</p><textarea id="draft" class="text-area" placeholder="Dear … / Estimado/a…"></textarea><div class="row" style="justify-content:space-between;margin-top:9px"><span id="wordCount" class="count">0 palabras</span><button class="btn secondary" onclick="copyDraft()">Copiar texto</button></div></div></div></section>
-</main><footer>Creado para practicar Business English en DAW · Tus datos se guardan localmente en este navegador.</footer></div><div class="toast" id="toast"></div>
-<script>
+<body>
+
+  <div class="shell">
+
+    <header class="hero">
+
+      <div class="eyebrow">DAW · Inglés profesional · B1/B2
+
+      </div>
+      <h1>Business English,<br>paso a paso.
+      </h1>
+      <p>Practica inglés profesional en sesiones cortas: vocabulario, gramática, reading, listening, speaking y writing con ejemplos de desarrollo web.
+      </p>
+
+      <div class="today" id="dateLine">Tu espacio de práctica
+
+      </div>
+
+      <div style="margin-top:10px"><span class="pill">3–5 min por actividad</span><span class="pill">Progreso guardado en este navegador</span><span class="pill">Funciona sin conexión</span>
+
+      </div>
+
+      <div class="progress-wrap">
+
+        <div class="progress-top"><span>Tu progreso en los ejercicios</span><span id="progressLabel">0%</span>
+
+        </div>
+
+        <div class="progress"><i id="progressBar"></i>
+
+        </div>
+
+      </div>
+
+    </header>
+
+    <nav class="nav" aria-label="Secciones"><button class="active" data-target="home">Inicio</button><button data-target="u12">03 nov · Unidades 1–2</button><button data-target="listen">10 nov · Listening y speaking</button><button data-target="u3">17 nov · Unidad 3</button><button data-target="write">Writing</button>
+
+    </nav>
+
+    <main>
+
+      <section class="view active" id="home">
+
+        <div class="grid">
+
+          <div class="card span-12"><span class="tag">Calendario de exámenes</span>
+
+            <div class="schedule">
+
+              <div class="datebox"><b>03 Nov</b>Unidad 1 + Unidad 2<br><span class="muted">Vocabulario · Gramática · Reading</span>
+
+              </div>
+
+              <div class="datebox"><b>10 Nov</b>Listening + Speaking<br><span class="muted">Comprensión oral · expresión oral</span>
+
+              </div>
+
+              <div class="datebox"><b>17 Nov</b>Writing + Unidad 3<br><span class="muted">Vocabulario · gramática acumulada</span>
+
+              </div>
+
+            </div>
+            <p class="small muted" style="margin-bottom:0">Interpretación provisional: el índice del libro llega hasta la Unidad 15. Por eso, «U18 U2» probablemente significa «U1 y U2».
+            </p>
+
+          </div>
+
+          <div class="card span-7"><span class="tag">Modo clase · 5 minutos</span>
+            <h2>Una ronda rápida
+            </h2>
+            <p class="muted">Haz una pregunta de vocabulario, otra de gramática y responde brevemente en voz alta. ¡Cinco minutos también cuentan!
+            </p>
+
+            <div class="row"><button class="btn" onclick="go('u12');document.getElementById('quizStart').scrollIntoView({behavior:'smooth'})">Empezar unidades 1–2</button><button class="btn secondary" onclick="go('listen')">Practicar listening</button>
+
+            </div>
+
+          </div>
+
+          <div class="card span-5"><span class="tag">Tu objetivo</span>
+            <h2 id="streakTitle">Empieza con una pregunta
+            </h2>
+            <p class="muted" id="streakText">Tus respuestas se guardan en este navegador. Puedes continuar después de clase.
+            </p><button class="btn ghost smallbtn" onclick="resetProgress()">Borrar progreso</button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="view" id="u12">
+
+        <div class="unithead">
+          <h2>03 nov · Unidades 1–2
+          </h2><span class="tag">Vocabulario · Gramática · Reading</span>
+
+        </div>
+
+        <div class="grid">
+
+          <div class="card span-6"><span class="tag">Unidad 1 · Working life</span>
+            <h2>Habla de tu trabajo
+            </h2>
+
+            <div class="phrase"><strong>work as / work for / work in</strong><span class="muted">puesto / empresa / sector</span>
+
+              <div class="example">I work <b>as</b> a junior developer <b>for</b> a software company <b>in</b> Burgos.
+
+              </div>
+
+            </div>
+
+            <div class="phrase"><strong>be in charge of / be responsible for</strong><span class="muted">ser responsable de una tarea o función</span>
+
+              <div class="example">I’m responsible for testing new features. Our team lead is in charge of planning releases.
+
+              </div>
+
+            </div>
+
+            <div class="phrase"><strong>specialize in / deal with / consist of</strong><span class="muted">especializarse en / tratar con / constar de</span>
+
+              <div class="example">We specialize in web apps. Support deals with user requests. The team consists of five developers.
+
+              </div>
+
+            </div>
+            <p class="small muted">Otras palabras del tema: <b>colleagues</b> (compañeros), <b>clients</b> (clientes), <b>freelance</b> (freelancer), <b>full-time</b> (jornada completa), <b>part-time</b> (jornada parcial), <b>job title</b> (cargo).
+            </p>
+
+          </div>
+
+          <div class="card span-6"><span class="tag">Unidad 1 · Language at work</span>
+            <h2>Present Simple × Continuous
+            </h2>
+
+            <div class="rule"><b>Present Simple</b> para hábitos, responsabilidades y hechos.<br><span class="example">I test the website every morning. She works with the design team.</span>
+
+            </div>
+
+            <div class="rule"><b>Present Continuous</b> para algo que está ocurriendo ahora o es temporal.<br><span class="example">We’re testing a new feature this week. I’m working from home today.</span>
+
+            </div>
+            <p class="small">Estructura: <span class="kbd">I work / she works</span> · <span class="kbd">I am working / she is working</span>
+            </p>
+            <p class="small muted">Pistas habituales: <i>usually, every day</i> → simple; <i>now, at the moment, this week</i> → continuous. Verbos como <i>know</i> y <i>like</i> normalmente no se usan en la forma continua.
+            </p>
+
+          </div>
+
+          <div class="card span-6"><span class="tag">Unidad 2 · Work-life balance</span>
+            <h2>Condiciones laborales
+            </h2>
+
+            <div class="phrase"><strong>flexitime · core hours · working hours · overtime</strong><span class="muted">horario flexible · franja obligatoria · jornada laboral · horas extra</span>
+
+            </div>
+
+            <div class="phrase"><strong>work from home · annual leave · paid/unpaid leave</strong><span class="muted">teletrabajo · vacaciones anuales · permiso retribuido/no retribuido</span>
+
+            </div>
+
+            <div class="phrase"><strong>sick leave · maternity/paternity leave</strong><span class="muted">baja por enfermedad · permiso de maternidad/paternidad</span>
+
+              <div class="example">The company offers flexitime and lets us work from home twice a week.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="card span-6"><span class="tag">Unidad 2 · Language at work</span>
+            <h2><i>to + infinitive</i> × <i>-ing</i>
+            </h2>
+
+            <div class="rule"><b>Plan o decisión → to + verbo</b><br><span class="example">We plan to release the app in June. I decided to learn React.</span>
+
+            </div>
+
+            <div class="rule"><b>Después de un adjetivo → to + verbo</b><br><span class="example">It’s important to take breaks.</span>
+
+            </div>
+
+            <div class="rule"><b>Después de verbos de gusto → -ing</b><br><span class="example">I enjoy solving problems.</span>
+
+            </div>
+
+            <div class="rule"><b>Después de una preposición → -ing</b><br><span class="example">She’s interested in learning Python. I look forward to meeting you.</span>
+
+            </div>
+
+          </div>
+
+          <div class="card span-12"><span class="tag">Tarjetas · repaso interactivo</span>
+            <h2>¿Te sabes el vocabulario?
+            </h2>
+            <p class="muted">Pulsa la tarjeta para ver la traducción. Cambia de unidad y turnaos para responder antes de darle la vuelta.
+            </p>
+
+            <div class="row" style="margin-bottom:12px"><label for="deckSelect"><b>Unidad:</b></label><select id="deckSelect" class="qinput" style="max-width:220px" onchange="setDeck(this.value)"><option value="all">Todas</option><option value="1">Unidad 1 · Working life</option><option value="2">Unidad 2 · Work-life balance</option><option value="3">Unidad 3 · Projects</option></select><span id="cardCount" class="small muted"></span>
+
+            </div><button id="flashCard" class="card flash span-12" onclick="flipCard()" aria-live="polite"><span class="tag" id="flashUnit">Unidad 1</span><span class="term" id="flashTerm">work as</span><span class="meaning" id="flashMeaning" style="display:none">trabajar como</span><span class="example" id="flashExample" style="display:none">I work as a web developer.</span><span class="small muted" id="flashHint">Pulsa para revelar la respuesta</span></button>
+
+            <div class="row" style="justify-content:center;margin-top:12px"><button class="btn secondary" onclick="prevCard()">← Anterior</button><button class="btn" onclick="nextCard()">Siguiente →</button><button class="btn ghost" onclick="shuffleCards()">Mezclar</button>
+
+            </div>
+
+          </div>
+
+          <div class="card span-12" id="quizStart"><span class="tag">Mini examen · 10 preguntas + reading</span>
+            <h2>Responde y comprueba al instante
+            </h2>
+            <p class="muted">Las preguntas combinan las unidades 1–2 e incluyen un reading breve. Intenta responder sin mirar el resumen.
+            </p>
+
+            <div id="quiz">
+
+            </div>
+
+            <div class="row"><button class="btn" onclick="checkQuiz()">Corregir respuestas</button><button class="btn secondary" onclick="clearQuiz()">Borrar respuestas</button><span id="quizScore" class="muted"></span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="view" id="listen">
+
+        <div class="unithead">
+          <h2>10 nov · Listening y speaking
+          </h2><span class="tag">Práctica oral</span>
+
+        </div>
+
+        <div class="grid">
+
+          <div class="card span-7"><span class="tag">Listening · audio simulado</span>
+            <h2>Escucha antes de leer
+            </h2>
+            <p class="muted">Pulsa para escuchar el texto en inglés. Si quieres, lee primero las preguntas, escucha dos veces y apunta palabras clave.
+            </p>
+
+            <div class="audio-box">
+
+              <div class="row"><button class="btn" onclick="speakText()">▶ Escuchar el audio</button><button class="btn secondary" onclick="stopSpeech()">Parar</button><button class="btn ghost" onclick="toggleTranscript()">Mostrar transcripción</button>
+
+              </div>
+
+              <div class="transcript" id="transcript"><b>Audio script · A project update</b>
+                <p>Hi, everyone. Here’s a quick update on the customer portal. We’ve completed the login page and tested it with three users. We started the project two weeks ago, but we’re a little behind schedule because the payment API is taking longer than expected. Ana is checking the integration today. I’ll speak to the client tomorrow and send a revised timeline. We’re planning to finish testing by Friday. Please let me know if you have any questions.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div id="listenQuiz">
+
+            </div><button class="btn" onclick="checkListening()">Corregir listening</button><span id="listenScore" class="muted" style="margin-left:10px"></span>
+
+          </div>
+
+          <div class="card span-5"><span class="tag">Speaking · práctica breve</span>
+            <h2>Responde en voz alta
+            </h2>
+
+            <div class="prompt" id="speakPrompt">What are you working on at the moment?
+
+            </div>
+
+            <div class="row" style="margin:12px 0"><button class="btn secondary" onclick="nextPrompt()">Otra pregunta</button><button class="btn ghost" onclick="speakPrompt()">🔊 Escuchar la pregunta</button>
+
+            </div>
+            <p class="small muted">Habla durante 30–45 segundos. Puedes usar estas estructuras:
+            </p>
+
+            <div class="example">I’m currently working on…<br>My main responsibility is…<br>We’ve already completed…<br>The next step is to…<br>We expect to finish by…
+
+            </div>
+
+            <div class="divider">
+
+            </div>
+            <p class="small"><b>Graba tu respuesta</b> en el navegador y descarga el audio para escuchar tu pronunciación.
+            </p>
+
+            <div class="row"><button class="btn smallbtn" id="recordBtn" onclick="recordAnswer()">● Grabar</button><button class="btn secondary smallbtn" id="stopRecord" onclick="stopRecording()" disabled>Parar</button><span id="recStatus" class="small muted"></span>
+
+            </div><audio id="playback" controls style="display:none;width:100%;margin-top:10px"></audio><a id="downloadAudio" style="display:none" class="small" download="speaking-practice.webm">Descargar grabación</a>
+            <p class="small muted">La grabación se queda en tu dispositivo; no se envía a ningún servidor.
+            </p>
+
+          </div>
+
+          <div class="card span-12"><span class="tag">Frases para estructurar tu intervención</span>
+            <h2>Organiza tu respuesta
+            </h2>
+
+            <div class="grid">
+
+              <div class="span-4"><b>Para empezar</b>
+                <p class="muted">First, I’d like to explain…<br>Let me give you a quick update.
+                </p>
+
+              </div>
+
+              <div class="span-4"><b>Para añadir / contrastar</b>
+                <p class="muted">Also, …<br>However, …<br>As a result, …
+                </p>
+
+              </div>
+
+              <div class="span-4"><b>Para concluir</b>
+                <p class="muted">To sum up, …<br>The next step is…<br>That’s all from me. Any questions?
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="view" id="u3">
+
+        <div class="unithead">
+          <h2>17 nov · Unidad 3
+          </h2><span class="tag">Projects · Present Perfect × Past Simple</span>
+
+        </div>
+
+        <div class="grid">
+
+          <div class="card span-6"><span class="tag">Vocabulario · Projects</span>
+            <h2>Habla del progreso del proyecto
+            </h2>
+            <p class="small muted">Vocabulario de apoyo adaptado a proyectos de software y al tema Projects de la unidad.
+            </p>
+
+            <div class="phrase"><strong>project · task · deadline · milestone</strong><span class="muted">proyecto · tarea · fecha límite · hito</span>
+
+              <div class="example">We’ve reached the first milestone, but one task is behind schedule.
+
+              </div>
+
+            </div>
+
+            <div class="phrase"><strong>progress · update · delegate · delay</strong><span class="muted">progreso · actualización · delegar · retraso</span>
+
+              <div class="example">I’ll update the team and delegate the testing tasks.
+
+              </div>
+
+            </div>
+
+            <div class="phrase"><strong>on schedule · behind schedule · complete</strong><span class="muted">dentro del plazo · con retraso · completar</span>
+
+              <div class="example">The team has completed the prototype. The launch is still on schedule.
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="card span-6"><span class="tag">Gramática · tiempos verbales</span>
+            <h2>Present Perfect × Past Simple
+            </h2>
+
+            <div class="rule"><b>Present Perfect</b> (<span class="kbd">have/has + past participle</span>): para resultados actuales, experiencias o periodos que aún no han terminado; no indica cuándo exactamente.<br><span class="example">We’ve completed the prototype. Have you tested the new page yet?</span>
+
+            </div>
+
+            <div class="rule"><b>Past Simple</b>: para acciones terminadas en un momento concreto del pasado.<br><span class="example">We completed the prototype yesterday. The project started in September.</span>
+
+            </div>
+            <p class="small muted"><i>ever, never, already, yet, just</i> suelen aparecer con el Present Perfect; <i>yesterday, last week, in 2025, two days ago</i> requieren Past Simple.
+            </p>
+
+          </div>
+
+          <div class="card span-12"><span class="tag">Práctica · actualización del proyecto</span>
+            <h2>Completa con la forma correcta
+            </h2>
+
+            <div id="u3Quiz">
+
+            </div><button class="btn" onclick="checkU3()">Corregir Unidad 3</button><span id="u3Score" class="muted" style="margin-left:10px"></span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="view" id="write">
+
+        <div class="unithead">
+          <h2>Writing · práctica para el 17 nov
+          </h2><span class="tag">Borrador guardado automáticamente</span>
+
+        </div>
+
+        <div class="grid">
+
+          <div class="card span-5"><span class="tag">Propuesta 1 · correo profesional</span>
+            <h2>Comunicar un retraso del proyecto
+            </h2>
+            <p>Escribe un correo breve al cliente. Explica que la integración con la API se ha retrasado, cuenta qué ha completado el equipo y propone una nueva fecha de entrega. Incluye saludo, párrafos claros y despedida profesional.
+            </p>
+
+            <div class="example">Expresiones útiles: <i>I’m writing to update you on… / We have completed… / Unfortunately… / We expect to… / Please let me know if…</i>
+
+            </div>
+
+          </div>
+
+          <div class="card span-7"><span class="tag">Propuesta 2 · proceso / informe breve</span>
+            <h2>Describe un proceso de pruebas
+            </h2>
+            <p>Describe en 100–140 palabras cómo prueba tu equipo una nueva funcionalidad web. Incluye el orden de los pasos, quién es responsable de cada parte y cómo registra el equipo los errores.
+            </p>
+
+            <div class="example">Conectores de secuencia: <i>First, … Then, … After that, … Finally, …</i><br>Informe de errores: <i>The issue occurs when… / To reproduce the bug… / The expected result is…</i>
+
+            </div>
+
+          </div>
+
+          <div class="card span-12">
+            <h2>Tu borrador
+            </h2>
+            <p class="muted small">Escribe aquí. El texto se guarda en este navegador. Si compartes tu redacción en el chat, puedo corregir la gramática, la cohesión, el vocabulario y el tono.
+            </p><textarea id="draft" class="text-area" placeholder="Dear … / Estimado/a…"></textarea>
+
+            <div class="row" style="justify-content:space-between;margin-top:9px"><span id="wordCount" class="count">0 palabras</span><button class="btn secondary" onclick="copyDraft()">Copiar texto</button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>Creado para practicar Business English en DAW · Tus datos se guardan localmente en este navegador.
+
+    </footer>
+
+  </div>
+
+  <div class="toast" id="toast">
+
+  </div>
+
+  <script>
+
 const questions=[
- {t:'I ___ as a junior developer for a software company.',o:['work','am working','working'],a:0,e:'Hábito/ocupación → Present Simple.'},
- {t:'At the moment, our team ___ a new booking system.',o:['develops','is developing','develop'],a:1,e:'At the moment indica una acción en curso → Present Continuous.'},
- {t:'Marta is responsible ___ testing the new feature.',o:['for','of','in'],a:0,e:'La estructura es responsible for + sustantivo o -ing.'},
- {t:'The support team ___ with user requests every day.',o:['deals','is dealing','deal'],a:0,e:'Every day indica un hábito; team es singular en este ejemplo.'},
- {t:'We plan ___ the website next month.',o:['redesign','redesigning','to redesign'],a:2,e:'Plan suele ir seguido de to + infinitive.'},
- {t:'I enjoy ___ bugs and finding solutions.',o:['to investigate','investigating','investigate'],a:1,e:'Enjoy va seguido de la forma -ing.'},
- {t:'Are you interested in ___ from home?',o:['working','to work','work'],a:0,e:'Después de la preposición in usamos -ing.'},
- {t:'Employees can take ___ leave when they are ill.',o:['annual','sick','maternity'],a:1,e:'Sick leave significa baja por enfermedad.'},
- {t:'Our company offers ___, so staff can choose when to start and finish.',o:['flexitime','overtime','clients'],a:0,e:'Flexitime significa horario flexible.'},
- {t:'This week, I ___ (work) on the login page, but I usually ___ (work) on the database.',input:true,answers:['am working|work','work|am working'],e:'This week = situación temporal; usually = hábito.'}
+ {
+  t:'I ___ as a junior developer for a software company.',
+  o:['work',
+  'am working',
+  'working'],
+  a:0,
+  e:'Hábito/ocupación → Present Simple.'
+},
+
+ {
+  t:'At the moment, our team ___ a new booking system.',
+  o:['develops',
+  'is developing',
+  'develop'],
+  a:1,
+  e:'At the moment indica una acción en curso → Present Continuous.'
+},
+
+ {
+  t:'Marta is responsible ___ testing the new feature.',
+  o:['for',
+  'of',
+  'in'],
+  a:0,
+  e:'La estructura es responsible for + sustantivo o -ing.'
+},
+
+ {
+  t:'The support team ___ with user requests every day.',
+  o:['deals',
+  'is dealing',
+  'deal'],
+  a:0,
+  e:'Every day indica un hábito; team es singular en este ejemplo.'
+},
+
+ {
+  t:'We plan ___ the website next month.',
+  o:['redesign',
+  'redesigning',
+  'to redesign'],
+  a:2,
+  e:'Plan suele ir seguido de to + infinitive.'
+},
+
+ {
+  t:'I enjoy ___ bugs and finding solutions.',
+  o:['to investigate',
+  'investigating',
+  'investigate'],
+  a:1,
+  e:'Enjoy va seguido de la forma -ing.'
+},
+
+ {
+  t:'Are you interested in ___ from home?',
+  o:['working',
+  'to work',
+  'work'],
+  a:0,
+  e:'Después de la preposición in usamos -ing.'
+},
+
+ {
+  t:'Employees can take ___ leave when they are ill.',
+  o:['annual',
+  'sick',
+  'maternity'],
+  a:1,
+  e:'Sick leave significa baja por enfermedad.'
+},
+
+ {
+  t:'Our company offers ___, so staff can choose when to start and finish.',
+  o:['flexitime',
+  'overtime',
+  'clients'],
+  a:0,
+  e:'Flexitime significa horario flexible.'
+},
+
+ {
+  t:'This week, I ___ (work) on the login page, but I usually ___ (work) on the database.',
+  input:true,
+  answers:['am working|work',
+  'work|am working'],
+  e:'This week = situación temporal; usually = hábito.'
+}
+
 ];
+
 const reading=[
- {t:'What is Leo’s usual job, and what does he usually do?',o:['He is a junior developer and works on small website updates.','He is a manager and sells computers.','He is a designer and tests payment systems.'],a:0,e:'El texto dice que es junior developer y se ocupa de pequeñas actualizaciones web.'},
- {t:'Why is he working from home this month?',o:['His office is closed.','His team is developing a new online store.','He is on annual leave.'],a:1,e:'Trabaja desde casa porque su equipo está creando una tienda online.'},
- {t:'Which two changes could improve Leo’s work-life balance?',o:['Work longer and check emails at night.','Take a proper lunch break and finish work on time.','Stop working with his team.'],a:1,e:'Su responsable le recomienda hacer una pausa para comer y terminar a su hora.'}
+ {
+  t:'What is Leo’s usual job, and what does he usually do?',
+  o:['He is a junior developer and works on small website updates.',
+  'He is a manager and sells computers.',
+  'He is a designer and tests payment systems.'],
+  a:0,
+  e:'El texto dice que es junior developer y se ocupa de pequeñas actualizaciones web.'
+},
+
+ {
+  t:'Why is he working from home this month?',
+  o:['His office is closed.',
+  'His team is developing a new online store.',
+  'He is on annual leave.'],
+  a:1,
+  e:'Trabaja desde casa porque su equipo está creando una tienda online.'
+},
+
+ {
+  t:'Which two changes could improve Leo’s work-life balance?',
+  o:['Work longer and check emails at night.',
+  'Take a proper lunch break and finish work on time.',
+  'Stop working with his team.'],
+  a:1,
+  e:'Su responsable le recomienda hacer una pausa para comer y terminar a su hora.'
+}
+
 ];
+
 const listeningQs=[
- {t:'What has the team completed?',o:['The login page','The payment API','The whole customer portal'],a:0},
- {t:'Why is the project a little behind schedule?',o:['The client has changed the design.','The payment API is taking longer than expected.','The team has not started testing.'],a:1},
- {t:'When does the speaker plan to talk to the client?',o:['Today','Tomorrow','On Friday'],a:1}
+ {
+  t:'What has the team completed?',
+  o:['The login page',
+  'The payment API',
+  'The whole customer portal'],
+  a:0
+},
+
+ {
+  t:'Why is the project a little behind schedule?',
+  o:['The client has changed the design.',
+  'The payment API is taking longer than expected.',
+  'The team has not started testing.'],
+  a:1
+},
+
+ {
+  t:'When does the speaker plan to talk to the client?',
+  o:['Today',
+  'Tomorrow',
+  'On Friday'],
+  a:1
+}
+
 ];
+
 const u3Qs=[
- {t:'We ___ (finish) the login page yesterday.',answers:['finished'],e:'Yesterday requiere Past Simple.'},
- {t:'The team ___ already ___ (test) the new form.',answers:['has already tested','have already tested'],e:'Resultado atual com already → Present Perfect.'},
- {t:'I ___ (send) the update two hours ago.',answers:['sent'],e:'Two hours ago requiere Past Simple.'},
- {t:'___ you ever ___ (work) on an e-commerce project?',answers:['have you ever worked'],e:'Experiência sem momento definido → Present Perfect.'}
+ {
+  t:'We ___ (finish) the login page yesterday.',
+  answers:['finished'],
+  e:'Yesterday requiere Past Simple.'
+},
+
+ {
+  t:'The team ___ already ___ (test) the new form.',
+  answers:['has already tested',
+  'have already tested'],
+  e:'Resultado atual com already → Present Perfect.'
+},
+
+ {
+  t:'I ___ (send) the update two hours ago.',
+  answers:['sent'],
+  e:'Two hours ago requiere Past Simple.'
+},
+
+ {
+  t:'___ you ever ___ (work) on an e-commerce project?',
+  answers:['have you ever worked'],
+  e:'Experiência sem momento definido → Present Perfect.'
+}
+
 ];
-let answered=new Set(JSON.parse(localStorage.getItem('be_answered')||'[]'));let mediaRecorder,recorded=[];
-function renderChoice(arr,id){document.getElementById(id).innerHTML=arr.map((q,i)=>`<div class="question" data-group="${id}" data-i="${i}"><p>${i+1}. ${q.t}</p>${q.input?`<input class="qinput" aria-label="Tu respuesta" placeholder="Escribe las dos formas separadas por una coma">`:`<div class="options">${q.o.map((x,j)=>`<label class="option"><input type="radio" name="${id}-${i}" value="${j}"><span>${String.fromCharCode(97+j)}) ${x}</span></label>`).join('')}</div>`}<div class="feedback" aria-live="polite"></div></div>`).join('')}
-function renderFill(arr,id){document.getElementById(id).innerHTML=arr.map((q,i)=>`<div class="question" data-group="${id}" data-i="${i}"><p>${i+1}. ${q.t}</p><input class="qinput" aria-label="Tu respuesta"><div class="feedback" aria-live="polite"></div></div>`).join('')}
-function norm(s){return s.toLowerCase().trim().replace(/[.,!?]/g,'').replace(/\s+/g,' ')}
-function mark(group,arr){let score=0;document.querySelectorAll(`.question[data-group="${group}"]`).forEach((el,i)=>{const q=arr[i],fb=el.querySelector('.feedback');let ok=false;if(q.input){let val=norm(el.querySelector('input').value).replace(/\s*,\s*/g,'|').replace(/\s+and\s+/g,'|');ok=q.answers.some(a=>norm(a).replace(/\s*,\s*/g,'|')===val)}else if(q.o){const selected=el.querySelector('input:checked');ok=!!selected&&Number(selected.value)===q.a}else{const val=norm(el.querySelector('input').value);ok=q.answers.some(a=>norm(a)===val)}if(ok){score++;fb.textContent='✓ ¡Correcto! '+(q.e||'');fb.className='feedback ok';answered.add(group+'-'+i)}else{fb.textContent='✗ Todavía no. '+(q.e||'Revisa el texto e inténtalo de nuevo.');fb.className='feedback no'} });localStorage.setItem('be_answered',JSON.stringify([...answered]));updateProgress();return score}
-function checkQuiz(){let a=mark('quiz',questions),b=mark('reading',reading);document.getElementById('quizScore').textContent=`Resultado: ${a+b}/13`;}
-function checkListening(){let s=mark('listenQuiz',listeningQs);document.getElementById('listenScore').textContent=`${s}/${listeningQs.length}`}
-function checkU3(){let s=mark('u3Quiz',u3Qs);document.getElementById('u3Score').textContent=`${s}/${u3Qs.length}`}
-function clearQuiz(){document.querySelectorAll('#quiz input, #reading input').forEach(x=>{if(x.type==='radio')x.checked=false;else x.value=''});document.querySelectorAll('#quiz .feedback, #reading .feedback').forEach(x=>x.textContent='');document.getElementById('quizScore').textContent=''}
-function go(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.target===id));window.scrollTo({top:0,behavior:'smooth'})}
+
+let answered=new Set(JSON.parse(localStorage.getItem('be_answered')||'[]'));
+let mediaRecorder,
+recorded=[];
+
+function renderChoice(arr,id){
+  document.getElementById(id).innerHTML=arr.map((q,i)=>`<div class="question" data-group="${id}" data-i="${i}"><p>${i+1}. ${q.t}</p>${q.input?`<input class="qinput" aria-label="Tu respuesta" placeholder="Escribe las dos formas separadas por una coma">`:`<div class="options">${
+    q.o.map((x,j)=>`<label class="option"><input type="radio" name="${id}-${i}" value="${j}"><span>${String.fromCharCode(97+j)}) ${x}</span></label>`).join('')
+  }
+  </div>`}<div class="feedback" aria-live="polite"></div></div>`).join('')
+}
+
+function renderFill(arr,id){
+  document.getElementById(id).innerHTML=arr.map((q,i)=>`<div class="question" data-group="${id}" data-i="${i}"><p>${i+1}. ${q.t}</p><input class="qinput" aria-label="Tu respuesta"><div class="feedback" aria-live="polite"></div></div>`).join('')
+}
+
+function norm(s){
+  return s.toLowerCase().trim().replace(/[.,!?]/g,'').replace(/\s+/g,' ')
+}
+
+function mark(group,arr){
+  let score=0;
+  document.querySelectorAll(`.question[data-group="${group}"]`).forEach((el,i)=>{
+    const q=arr[i],fb=el.querySelector('.feedback');let ok=false;if(q.input){
+      let val=norm(el.querySelector('input').value).replace(/\s*,\s*/g,'|').replace(/\s+and\s+/g,'|');ok=q.answers.some(a=>norm(a).replace(/\s*,\s*/g,'|')===val)
+    }
+    else if(q.o){
+      const selected=el.querySelector('input:checked');ok=!!selected&&Number(selected.value)===q.a
+    }
+    else{
+      const val=norm(el.querySelector('input').value);ok=q.answers.some(a=>norm(a)===val)
+    }
+    if(ok){
+      score++;fb.textContent='✓ ¡Correcto! '+(q.e||'');fb.className='feedback ok';answered.add(group+'-'+i)
+    }
+    else{
+      fb.textContent='✗ Todavía no. '+(q.e||'Revisa el texto e inténtalo de nuevo.');fb.className='feedback no'
+    }
+
+  });
+  localStorage.setItem('be_answered',JSON.stringify([...answered]));
+  updateProgress();
+  return score
+}
+
+function checkQuiz(){
+  let a=mark('quiz',questions),
+  b=mark('reading',reading);
+  document.getElementById('quizScore').textContent=`Resultado: ${a+b}/13`;
+
+}
+
+function checkListening(){
+  let s=mark('listenQuiz',listeningQs);
+  document.getElementById('listenScore').textContent=`${s}/${listeningQs.length}`
+}
+
+function checkU3(){
+  let s=mark('u3Quiz',u3Qs);
+  document.getElementById('u3Score').textContent=`${s}/${u3Qs.length}`
+}
+
+function clearQuiz(){
+  document.querySelectorAll('#quiz input, #reading input').forEach(x=>{
+    if(x.type==='radio')x.checked=false;else x.value=''
+  });
+  document.querySelectorAll('#quiz .feedback, #reading .feedback').forEach(x=>x.textContent='');
+  document.getElementById('quizScore').textContent=''
+}
+
+function go(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.target===id));
+  window.scrollTo({
+    top:0,behavior:'smooth'
+  })
+}
+
 document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>go(b.dataset.target)));
-function updateProgress(){let total=questions.length+reading.length+listeningQs.length+u3Qs.length;let pct=Math.round(answered.size/total*100);document.getElementById('progressLabel').textContent=pct+'%';document.getElementById('progressBar').style.width=pct+'%';document.getElementById('streakTitle').textContent=answered.size?`${answered.size} respuesta${answered.size===1?'':'s'} acertada${answered.size===1?'':'s'}`:'Empieza con una pregunta';document.getElementById('streakText').textContent=answered.size?'¡Bien! Vuelve a practicar cuando tengas unos minutos.':'Tus respuestas se guardan en este navegador. Puedes continuar después de clase.'}
+
+function updateProgress(){
+  let total=questions.length+reading.length+listeningQs.length+u3Qs.length;
+  let pct=Math.round(answered.size/total*100);
+  document.getElementById('progressLabel').textContent=pct+'%';
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('streakTitle').textContent=answered.size?`${answered.size} respuesta${answered.size===1?'':'s'} acertada${answered.size===1?'':'s'}`:'Empieza con una pregunta';
+  document.getElementById('streakText').textContent=answered.size?'¡Bien! Vuelve a practicar cuando tengas unos minutos.':'Tus respuestas se guardan en este navegador. Puedes continuar después de clase.'
+}
+
 const scriptText='Hi, everyone. Here is a quick update on the customer portal. We have completed the login page and tested it with three users. We started the project two weeks ago, but we are a little behind schedule because the payment A P I is taking longer than expected. Ana is checking the integration today. I will speak to the client tomorrow and send a revised timeline. We are planning to finish testing by Friday. Please let me know if you have any questions.';
-function speakText(){if(!('speechSynthesis'in window)){toast('La lectura en voz alta no está disponible en este navegador.');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(scriptText);u.lang='en-GB';u.rate=.88;speechSynthesis.speak(u)}function stopSpeech(){if('speechSynthesis'in window)speechSynthesis.cancel()}function toggleTranscript(){document.getElementById('transcript').classList.toggle('show')}
-const prompts=['What are you working on at the moment?','What does your team need to finish this week?','How do you maintain a good work-life balance?','Tell me about a project you have worked on.','What do you do when a software project is behind schedule?','Which skills are important for a junior web developer?'];let pIndex=0;function nextPrompt(){pIndex=(pIndex+1)%prompts.length;document.getElementById('speakPrompt').textContent=prompts[pIndex]}function speakPrompt(){if(!('speechSynthesis'in window))return;let u=new SpeechSynthesisUtterance(document.getElementById('speakPrompt').textContent);u.lang='en-GB';speechSynthesis.speak(u)}
-async function recordAnswer(){try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});recorded=[];mediaRecorder=new MediaRecorder(stream);mediaRecorder.ondataavailable=e=>{if(e.data.size)recorded.push(e.data)};mediaRecorder.onstop=()=>{const blob=new Blob(recorded,{type:recorded[0]?.type||'audio/webm'}),url=URL.createObjectURL(blob),audio=document.getElementById('playback'),link=document.getElementById('downloadAudio');audio.src=url;audio.style.display='block';link.href=url;link.style.display='inline-block';stream.getTracks().forEach(t=>t.stop());document.getElementById('recStatus').textContent='Grabación lista.'};mediaRecorder.start();document.getElementById('recordBtn').disabled=true;document.getElementById('stopRecord').disabled=false;document.getElementById('recStatus').textContent='Grabando…'}catch(e){toast('Permite el acceso al micrófono para grabar. En GitHub Pages, abre la web con HTTPS.')}}function stopRecording(){if(mediaRecorder&&mediaRecorder.state!=='inactive'){mediaRecorder.stop();document.getElementById('recordBtn').disabled=false;document.getElementById('stopRecord').disabled=true}}
-function resetProgress(){if(confirm('¿Borrar las respuestas guardadas en este navegador?')){answered.clear();localStorage.removeItem('be_answered');updateProgress();toast('Progreso borrado.')}}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2800)}
-const draft=document.getElementById('draft');draft.value=localStorage.getItem('be_draft')||'';draft.addEventListener('input',()=>{localStorage.setItem('be_draft',draft.value);document.getElementById('wordCount').textContent=(draft.value.trim()?draft.value.trim().split(/\s+/).length:0)+' palabras'});function copyDraft(){navigator.clipboard?.writeText(draft.value).then(()=>toast('Texto copiado.')).catch(()=>toast('No se ha podido copiar automáticamente.'))}
+
+function speakText(){
+  if(!('speechSynthesis'in window)){
+    toast('La lectura en voz alta no está disponible en este navegador.');
+    return
+  }
+  speechSynthesis.cancel();
+  let u=new SpeechSynthesisUtterance(scriptText);
+  u.lang='en-GB';
+  u.rate=.88;
+  speechSynthesis.speak(u)
+}
+function stopSpeech(){
+  if('speechSynthesis'in window)speechSynthesis.cancel()
+}
+function toggleTranscript(){
+  document.getElementById('transcript').classList.toggle('show')
+}
+
+const prompts=['What are you working on at the moment?',
+'What does your team need to finish this week?',
+'How do you maintain a good work-life balance?',
+'Tell me about a project you have worked on.',
+'What do you do when a software project is behind schedule?',
+'Which skills are important for a junior web developer?'];
+let pIndex=0;
+function nextPrompt(){
+  pIndex=(pIndex+1)%prompts.length;
+  document.getElementById('speakPrompt').textContent=prompts[pIndex]
+}
+function speakPrompt(){
+  if(!('speechSynthesis'in window))return;
+  let u=new SpeechSynthesisUtterance(document.getElementById('speakPrompt').textContent);
+  u.lang='en-GB';
+  speechSynthesis.speak(u)
+}
+
+async function recordAnswer(){
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({
+      audio:true
+    });
+    recorded=[];
+    mediaRecorder=new MediaRecorder(stream);
+    mediaRecorder.ondataavailable=e=>{
+      if(e.data.size)recorded.push(e.data)
+    };
+    mediaRecorder.onstop=()=>{
+      const blob=new Blob(recorded,{
+        type:recorded[0]?.type||'audio/webm'
+      }),
+      url=URL.createObjectURL(blob),
+      audio=document.getElementById('playback'),
+      link=document.getElementById('downloadAudio');
+      audio.src=url;
+      audio.style.display='block';
+      link.href=url;
+      link.style.display='inline-block';
+      stream.getTracks().forEach(t=>t.stop());
+      document.getElementById('recStatus').textContent='Grabación lista.'
+    };
+    mediaRecorder.start();
+    document.getElementById('recordBtn').disabled=true;
+    document.getElementById('stopRecord').disabled=false;
+    document.getElementById('recStatus').textContent='Grabando…'
+  }
+  catch(e){
+    toast('Permite el acceso al micrófono para grabar. En GitHub Pages, abre la web con HTTPS.')
+  }
+
+}
+function stopRecording(){
+  if(mediaRecorder&&mediaRecorder.state!=='inactive'){
+    mediaRecorder.stop();
+    document.getElementById('recordBtn').disabled=false;
+    document.getElementById('stopRecord').disabled=true
+  }
+
+}
+
+function resetProgress(){
+  if(confirm('¿Borrar las respuestas guardadas en este navegador?')){
+    answered.clear();
+    localStorage.removeItem('be_answered');
+    updateProgress();
+    toast('Progreso borrado.')
+  }
+
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.display='block';
+  setTimeout(()=>t.style.display='none',2800)
+}
+
+const draft=document.getElementById('draft');
+draft.value=localStorage.getItem('be_draft')||'';
+draft.addEventListener('input',()=>{
+  localStorage.setItem('be_draft',draft.value);document.getElementById('wordCount').textContent=(draft.value.trim()?draft.value.trim().split(/\s+/).length:0)+' palabras'
+});
+function copyDraft(){
+  navigator.clipboard?.writeText(draft.value).then(()=>toast('Texto copiado.')).catch(()=>toast('No se ha podido copiar automáticamente.'))
+}
+
 document.getElementById('wordCount').textContent=(draft.value.trim()?draft.value.trim().split(/\s+/).length:0)+' palabras';
+
 const flashcards=[
-{u:1,en:'work as',es:'trabajar como',ex:'I work as a web developer.'},{u:1,en:'work for',es:'trabajar para (una empresa)',ex:'She works for a software company.'},{u:1,en:'work in',es:'trabajar en (un sector o departamento)',ex:'He works in IT.'},{u:1,en:'be responsible for',es:'ser responsable de',ex:'I’m responsible for testing the app.'},{u:1,en:'be in charge of',es:'estar a cargo de',ex:'She’s in charge of the project.'},{u:1,en:'deal with',es:'gestionar / tratar con',ex:'We deal with user requests.'},{u:1,en:'colleague',es:'compañero/a de trabajo',ex:'My colleagues work in the design team.'},
-{u:2,en:'flexitime',es:'horario flexible',ex:'The company offers flexitime.'},{u:2,en:'overtime',es:'horas extra',ex:'We sometimes work overtime.'},{u:2,en:'annual leave',es:'vacaciones anuales',ex:'I’m taking annual leave in August.'},{u:2,en:'sick leave',es:'baja por enfermedad',ex:'He’s on sick leave this week.'},{u:2,en:'work from home',es:'teletrabajar',ex:'I work from home twice a week.'},{u:2,en:'work-life balance',es:'equilibrio entre vida laboral y personal',ex:'A good work-life balance is important.'},
-{u:3,en:'deadline',es:'fecha límite',ex:'The deadline is next Friday.'},{u:3,en:'milestone',es:'hito (de un proyecto)',ex:'We’ve reached the first milestone.'},{u:3,en:'behind schedule',es:'con retraso',ex:'The project is two days behind schedule.'},{u:3,en:'delegate a task',es:'delegar una tarea',ex:'I’ll delegate the testing tasks.'},{u:3,en:'project update',es:'actualización del proyecto',ex:'Here’s a quick project update.'}
-];let deck='all',deckCards=flashcards.slice(),cardIndex=0,flipped=false;function paintCard(){if(!deckCards.length)return;let c=deckCards[cardIndex%deckCards.length];document.getElementById('flashUnit').textContent='Unidad '+c.u;document.getElementById('flashTerm').textContent=c.en;document.getElementById('flashMeaning').textContent=c.es;document.getElementById('flashExample').textContent=c.ex;document.getElementById('flashMeaning').style.display=flipped?'block':'none';document.getElementById('flashExample').style.display=flipped?'block':'none';document.getElementById('flashHint').textContent=flipped?'Pulsa para ocultar':'Pulsa para revelar la respuesta';document.getElementById('cardCount').textContent=(cardIndex+1)+' / '+deckCards.length}function flipCard(){flipped=!flipped;paintCard()}function setDeck(v){deck=v;deckCards=deck==='all'?flashcards.slice():flashcards.filter(c=>String(c.u)===deck);cardIndex=0;flipped=false;paintCard()}function nextCard(){cardIndex=(cardIndex+1)%deckCards.length;flipped=false;paintCard()}function prevCard(){cardIndex=(cardIndex-1+deckCards.length)%deckCards.length;flipped=false;paintCard()}function shuffleCards(){deckCards.sort(()=>Math.random()-.5);cardIndex=0;flipped=false;paintCard();toast('¡Tarjetas mezcladas!')}
-renderChoice(questions,'quiz');renderChoice(reading,'reading');renderChoice(listeningQs,'listenQuiz');renderFill(u3Qs,'u3Quiz');paintCard();updateProgress();document.getElementById('dateLine').textContent='Plan de repaso · '+new Intl.DateTimeFormat('es-ES',{dateStyle:'long'}).format(new Date());
-</script></body></html>
+{
+  u:1,
+  en:'work as',
+  es:'trabajar como',
+  ex:'I work as a web developer.'
+},
+{
+  u:1,
+  en:'work for',
+  es:'trabajar para (una empresa)',
+  ex:'She works for a software company.'
+},
+{
+  u:1,
+  en:'work in',
+  es:'trabajar en (un sector o departamento)',
+  ex:'He works in IT.'
+},
+{
+  u:1,
+  en:'be responsible for',
+  es:'ser responsable de',
+  ex:'I’m responsible for testing the app.'
+},
+{
+  u:1,
+  en:'be in charge of',
+  es:'estar a cargo de',
+  ex:'She’s in charge of the project.'
+},
+{
+  u:1,
+  en:'deal with',
+  es:'gestionar / tratar con',
+  ex:'We deal with user requests.'
+},
+{
+  u:1,
+  en:'colleague',
+  es:'compañero/a de trabajo',
+  ex:'My colleagues work in the design team.'
+},
+
+{
+  u:2,
+  en:'flexitime',
+  es:'horario flexible',
+  ex:'The company offers flexitime.'
+},
+{
+  u:2,
+  en:'overtime',
+  es:'horas extra',
+  ex:'We sometimes work overtime.'
+},
+{
+  u:2,
+  en:'annual leave',
+  es:'vacaciones anuales',
+  ex:'I’m taking annual leave in August.'
+},
+{
+  u:2,
+  en:'sick leave',
+  es:'baja por enfermedad',
+  ex:'He’s on sick leave this week.'
+},
+{
+  u:2,
+  en:'work from home',
+  es:'teletrabajar',
+  ex:'I work from home twice a week.'
+},
+{
+  u:2,
+  en:'work-life balance',
+  es:'equilibrio entre vida laboral y personal',
+  ex:'A good work-life balance is important.'
+},
+
+{
+  u:3,
+  en:'deadline',
+  es:'fecha límite',
+  ex:'The deadline is next Friday.'
+},
+{
+  u:3,
+  en:'milestone',
+  es:'hito (de un proyecto)',
+  ex:'We’ve reached the first milestone.'
+},
+{
+  u:3,
+  en:'behind schedule',
+  es:'con retraso',
+  ex:'The project is two days behind schedule.'
+},
+{
+  u:3,
+  en:'delegate a task',
+  es:'delegar una tarea',
+  ex:'I’ll delegate the testing tasks.'
+},
+{
+  u:3,
+  en:'project update',
+  es:'actualización del proyecto',
+  ex:'Here’s a quick project update.'
+}
+
+];
+let deck='all',
+deckCards=flashcards.slice(),
+cardIndex=0,
+flipped=false;
+function paintCard(){
+  if(!deckCards.length)return;
+  let c=deckCards[cardIndex%deckCards.length];
+  document.getElementById('flashUnit').textContent='Unidad '+c.u;
+  document.getElementById('flashTerm').textContent=c.en;
+  document.getElementById('flashMeaning').textContent=c.es;
+  document.getElementById('flashExample').textContent=c.ex;
+  document.getElementById('flashMeaning').style.display=flipped?'block':'none';
+  document.getElementById('flashExample').style.display=flipped?'block':'none';
+  document.getElementById('flashHint').textContent=flipped?'Pulsa para ocultar':'Pulsa para revelar la respuesta';
+  document.getElementById('cardCount').textContent=(cardIndex+1)+' / '+deckCards.length
+}
+function flipCard(){
+  flipped=!flipped;
+  paintCard()
+}
+function setDeck(v){
+  deck=v;
+  deckCards=deck==='all'?flashcards.slice():flashcards.filter(c=>String(c.u)===deck);
+  cardIndex=0;
+  flipped=false;
+  paintCard()
+}
+function nextCard(){
+  cardIndex=(cardIndex+1)%deckCards.length;
+  flipped=false;
+  paintCard()
+}
+function prevCard(){
+  cardIndex=(cardIndex-1+deckCards.length)%deckCards.length;
+  flipped=false;
+  paintCard()
+}
+function shuffleCards(){
+  deckCards.sort(()=>Math.random()-.5);
+  cardIndex=0;
+  flipped=false;
+  paintCard();
+  toast('¡Tarjetas mezcladas!')
+}
+
+renderChoice(questions,'quiz');
+renderChoice(reading,'reading');
+renderChoice(listeningQs,'listenQuiz');
+renderFill(u3Qs,'u3Quiz');
+paintCard();
+updateProgress();
+document.getElementById('dateLine').textContent='Plan de repaso · '+new Intl.DateTimeFormat('es-ES',{
+  dateStyle:'long'
+}).format(new Date());
+    </script>
+</body>
+</html>
