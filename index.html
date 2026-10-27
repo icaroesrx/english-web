@@ -622,6 +622,66 @@ footer  {
 
 }
 
+
+
+/* Alineación de ejemplos y composición móvil */
+.rule br { display: none; }
+.rule .example {
+  display: block;
+  width: 100%;
+  margin: 10px 0 0;
+  overflow-wrap: anywhere;
+}
+.example { max-width: 100%; }
+.grid > * { min-width: 0; }
+.question p, .phrase, .rule { overflow-wrap: anywhere; }
+
+@media (max-width: 600px) {
+  body { overflow-x: hidden; }
+  .shell { width: 100%; padding: 12px; }
+  .hero { padding: 24px 19px; border-radius: 21px; }
+  .hero h1 { font-size: 2.25rem; }
+  .hero p { max-width: 100%; font-size: .96rem; }
+  .hero:after { right: 8px; bottom: -15px; font-size: 72px; }
+  .pill { padding: 5px 9px; font-size: .75rem; }
+  .progress { max-width: 100%; }
+
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    top: 0;
+  }
+  .nav button { flex: 0 0 auto; padding: 8px 12px; font-size: .82rem; }
+
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .span-12, .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: 1 / -1; }
+  .card { padding: 17px; border-radius: 18px; }
+  .unithead { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .unithead h2 { font-size: 1.4rem; }
+  .schedule { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+  .datebox { padding: 12px; }
+
+  .question { padding: 13px; }
+  .option { padding: 10px; }
+  .qinput { width: 100%; max-width: 100%; }
+  .row { align-items: center; }
+  .row .btn { max-width: 100%; }
+  .flash { min-height: 180px; }
+  .flash .term { font-size: 1.55rem; }
+  .flash .example { width: 100%; }
+  .text-area { min-height: 210px; }
+  footer { padding: 25px 10px; font-size: .78rem; }
+}
+
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.95rem; }
+  .card { padding: 15px; }
+  .btn { padding: 9px 11px; font-size: .9rem; }
+  .nav button { font-size: .78rem; }
+}
 </style>
 </head>
 <body>
